@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float flapForceMultiplier;
     [SerializeField]
+    private float windForceMultiplier;
+    [SerializeField]
     private float torqueMultiplier;
     [SerializeField]
     private float speedDecay;
@@ -85,6 +87,12 @@ public class Player : MonoBehaviour {
         if (other.tag == "Fries") {
             flaps = maxFlaps;
             Destroy(other.gameObject);
+        }
+    }
+
+    void OnTriggerStay(Collider other) {
+        if (other.tag == "Wind") {
+            rb.AddForce(Vector3.up * windForceMultiplier);
         }
     }
 }

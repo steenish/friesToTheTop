@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flyForceMultiplier: 10
   flapForceMultiplier: 1500
+  windForceMultiplier: 200
   torqueMultiplier: 4
   speedDecay: 0.01
   maxSpeed: 50
