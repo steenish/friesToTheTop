@@ -197,6 +197,8 @@ MonoBehaviour:
   speedDecay: 0.01
   maxSpeed: 50
   animator: {fileID: 1613141760037736357}
+  flapsText: {fileID: 0}
+  currentScoreText: {fileID: 0}
 --- !u!1 &2116511142687137243
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -18,6 +19,10 @@ public class Player : MonoBehaviour {
     private float maxSpeed;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private Text flapsText;
+    [SerializeField]
+    private Text currentScoreText;
 
     private Rigidbody rb;
     private Vector2 movementInput;
@@ -25,11 +30,14 @@ public class Player : MonoBehaviour {
     private bool flapping = false;
     private int maxFlaps = 1;
     private int flaps = 1;
+    private int currentScore;
 
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody>();
         speed = 25f;
+        currentScore = (int) transform.position.y;
+        currentScoreText.text = "Current score: " + currentScore.ToString();
     }
 
     // Update is called once per frame
@@ -40,6 +48,13 @@ public class Player : MonoBehaviour {
         // Flap wings input
         if (Input.GetButtonDown("Jump")) {
             flapping = true;
+        }
+
+        // Update highscore
+        if (transform.position.y > currentScore) {
+            currentScore = (int) transform.position.y;
+            currentScoreText.text = "Current score: " + currentScore.ToString();
+            Debug.Log("New score: " + currentScore.ToString());
         }
     }
 
@@ -62,7 +77,7 @@ public class Player : MonoBehaviour {
         }
 
         // Gliding physics
-        Debug.Log(speed);
+        //Debug.Log(speed);
         speed += Mathf.Clamp(((transform.rotation.eulerAngles.x > 90f ? 0f : transform.rotation.eulerAngles.x + 1f) / 90f), 0f, 1f) * flyForceMultiplier;
         rb.AddForce(transform.forward * speed);
         speed -= speedDecay * (transform.rotation.eulerAngles.x > 90f ? Mathf.Clamp(360f - transform.rotation.eulerAngles.x, 1f, 90f) : 0f);
@@ -78,6 +93,7 @@ public class Player : MonoBehaviour {
                 rb.AddForce(Vector3.up * flapForceMultiplier);
                 rb.AddForce(transform.forward * flapForceMultiplier / 4);
                 flaps--;
+                flapsText.text = "Flaps: " + flaps.ToString();
             }
             flapping = false;
         }
@@ -86,6 +102,7 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Fries") {
             flaps = maxFlaps;
+            flapsText.text = "Flaps: " + flaps.ToString();
             Destroy(other.gameObject);
         }
     }
