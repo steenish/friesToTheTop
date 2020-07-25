@@ -30,7 +30,7 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate() {
         // Rotate player
-        if (movementInput.y != 0) {
+        if (movementInput.y != 0f) {
             Quaternion rotation = rb.rotation;
             Vector3 eulerRotation = rotation.eulerAngles;
             eulerRotation.x += torqueMultiplier * movementInput.y;
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour {
             rb.rotation = rotation;
         }
 
-        if (movementInput.x != 0) {
+        if (movementInput.x != 0f) {
             Quaternion rotation = rb.rotation;
             Vector3 eulerRotation = rotation.eulerAngles;
             eulerRotation.y += torqueMultiplier * movementInput.x;
@@ -49,9 +49,9 @@ public class Player : MonoBehaviour {
         // Gliding physics
         //rb.AddForce(transform.up * forceMultiplier * (Mathf.Clamp((90f - transform.rotation.eulerAngles.x), 0, 90f) / 90f));
         Debug.Log(speed);
-        speed += Mathf.Clamp(((transform.rotation.eulerAngles.x > 90f ? 0 : transform.rotation.eulerAngles.x) / 90f), 0, 1) * forceMultiplier;
+        speed += Mathf.Clamp(((transform.rotation.eulerAngles.x > 90f ? 0f : transform.rotation.eulerAngles.x) / 90f), 0f, 1f) * forceMultiplier;
         rb.AddForce(transform.forward * speed);
-        speed -= speedDecay;
-        speed = Mathf.Clamp(speed, 0, maxSpeed);
+        speed -= speedDecay * (transform.rotation.eulerAngles.x > 90f ? Mathf.Clamp(360f - transform.rotation.eulerAngles.x, 1f, 90f) : 0f);
+        speed = Mathf.Clamp(speed, 0f, maxSpeed);
     }
 }
