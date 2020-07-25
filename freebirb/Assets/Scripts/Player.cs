@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    public float forceMultiplier;
-    public float torqueMultiplier;
+
+    [SerializeField]
+    private float forceMultiplier;
+    [SerializeField]
+    private float torqueMultiplier;
+    [SerializeField]
+    private float speedDecay;
+    [SerializeField]
+    private float maxSpeed;
 
     private Rigidbody rb;
     private Vector2 movementInput;
+    private float speed;
 
     // Start is called before the first frame update
     void Start() {
@@ -39,7 +47,11 @@ public class Player : MonoBehaviour {
         }
 
         // Gliding physics
-        rb.AddForce(transform.up * forceMultiplier * (Mathf.Clamp((90f - transform.rotation.eulerAngles.x), 0, 90f) / 90f));
-        rb.AddForce(transform.forward * forceMultiplier * Mathf.Clamp((transform.rotation.eulerAngles.x / 90f), 0, 1));
+        //rb.AddForce(transform.up * forceMultiplier * (Mathf.Clamp((90f - transform.rotation.eulerAngles.x), 0, 90f) / 90f));
+        Debug.Log(speed);
+        speed += Mathf.Clamp(((transform.rotation.eulerAngles.x > 90f ? 0 : transform.rotation.eulerAngles.x) / 90f), 0, 1) * forceMultiplier;
+        rb.AddForce(transform.forward * speed);
+        speed -= speedDecay;
+        speed = Mathf.Clamp(speed, 0, maxSpeed);
     }
 }
