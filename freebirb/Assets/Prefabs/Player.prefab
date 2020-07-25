@@ -190,10 +190,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c1ce8e17351b140ad2afe651762c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 10
+  flyForceMultiplier: 10
+  flapForceMultiplier: 1500
   torqueMultiplier: 4
   speedDecay: 0.01
   maxSpeed: 50
+  animator: {fileID: 1613141760037736357}
 --- !u!1 &2116511142687137243
 GameObject:
   m_ObjectHideFlags: 0
