@@ -21,6 +21,8 @@ public class Player : MonoBehaviour {
     private Vector2 movementInput;
     private float speed;
     private bool flapping = false;
+    private int maxFlaps = 1;
+    private int flaps = 1;
 
     // Start is called before the first frame update
     void Start() {
@@ -63,16 +65,26 @@ public class Player : MonoBehaviour {
         rb.AddForce(transform.forward * speed);
         speed -= speedDecay * (transform.rotation.eulerAngles.x > 90f ? Mathf.Clamp(360f - transform.rotation.eulerAngles.x, 1f, 90f) : 0f);
         speed = Mathf.Clamp(speed, 0f, maxSpeed);
-        if (speed < 2f) {
+        if (speed < 5f) {
             rb.AddForce(transform.up * -2f * flyForceMultiplier);
         }
 
         // Flap wings physics
         if (flapping) {
-            animator.SetTrigger("FlyFlap");
-            rb.AddForce(Vector3.up * flapForceMultiplier);
-            rb.AddForce(transform.forward * flapForceMultiplier / 4);
+            if (flaps > 0) {
+                animator.SetTrigger("FlyFlap");
+                rb.AddForce(Vector3.up * flapForceMultiplier);
+                rb.AddForce(transform.forward * flapForceMultiplier / 4);
+                flaps--;
+            }
             flapping = false;
+        }
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.tag == "Fries") {
+            flaps = maxFlaps;
+            Destroy(other.gameObject);
         }
     }
 }
