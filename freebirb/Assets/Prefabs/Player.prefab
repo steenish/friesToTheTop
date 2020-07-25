@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 6522560338702470246}
   - component: {fileID: 8384199376154105606}
   m_Layer: 0
-  m_Name: Gull
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,10 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c1ce8e17351b140ad2afe651762c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 5
+  forceMultiplier: 10
   torqueMultiplier: 4
-  speedDecay: 0.2
-  maxSpeed: 1000
+  speedDecay: 1
+  maxSpeed: 75
 --- !u!1 &2116511142687137243
 GameObject:
   m_ObjectHideFlags: 0
