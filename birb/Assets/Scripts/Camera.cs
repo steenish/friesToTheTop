@@ -5,6 +5,7 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     public GameObject player;
+    public float heightOffset;
 
     private float offsetDistance;
 
@@ -17,7 +18,7 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position + player.transform.forward * -1 * offsetDistance;
+        transform.position = player.transform.position + player.transform.forward * -1 * offsetDistance + player.transform.up * heightOffset;
         transform.LookAt(player.transform.position);
     }
 }
