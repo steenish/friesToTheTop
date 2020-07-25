@@ -30,6 +30,14 @@ public class Player : MonoBehaviour {
             rb.rotation = rotation;
         }
 
+        if (movementInput.x != 0) {
+            Quaternion rotation = rb.rotation;
+            Vector3 eulerRotation = rotation.eulerAngles;
+            eulerRotation.y += torqueMultiplier * movementInput.x;
+            rotation.eulerAngles = eulerRotation;
+            rb.rotation = rotation;
+        }
+
         // Gliding physics
         rb.AddForce(transform.up * forceMultiplier * (Mathf.Clamp((90f - transform.rotation.eulerAngles.x), 0, 90f) / 90f));
         rb.AddForce(transform.forward * forceMultiplier * Mathf.Clamp((transform.rotation.eulerAngles.x / 90f), 0, 1));
