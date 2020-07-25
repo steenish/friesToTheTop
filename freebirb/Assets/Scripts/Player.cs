@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+#pragma warning disable
     [SerializeField]
     private float forceMultiplier;
     [SerializeField]
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour {
     private float speedDecay;
     [SerializeField]
     private float maxSpeed;
+#pragma warning restore
 
     private Rigidbody rb;
     private Vector2 movementInput;

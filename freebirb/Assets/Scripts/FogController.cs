@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class FogController : MonoBehaviour {
 
     [SerializeField]
-    private Transform playerTransform;
+    private float _fogPlayerOffset;
+    public float fogPlayerOffset { get => _fogPlayerOffset; private set => _fogPlayerOffset = value; }
+
+#pragma warning disable
     [SerializeField]
-    private float fogPlayerOffset;
+    private Transform playerTransform;
+#pragma warning restore
 
-    private float playerMaxAltitude;
-
-    void Start() {
-        
-    }
+    public float playerMaxAltitude { get; private set; }
 
     void Update() {
         playerMaxAltitude = (playerTransform.position.y > playerMaxAltitude) ? playerTransform.position.y : playerMaxAltitude;
