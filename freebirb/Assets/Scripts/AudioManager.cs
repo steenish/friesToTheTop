@@ -73,4 +73,10 @@ public class AudioManager : MonoBehaviour {
             Debug.LogWarning("Audio clip " + name + " not found. No audio stopped.");
         }
     }
+
+    public void ChangeVolume(string name, float volume) {
+        volume = Mathf.Clamp(volume, 0.0f, 1.0f);
+        Sound sound = Array.Find(sounds, e => e.name == name);
+        sound.source.volume = volume;
+    }
 }
