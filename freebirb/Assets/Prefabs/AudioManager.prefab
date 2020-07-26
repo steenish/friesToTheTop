@@ -55,7 +55,7 @@ MonoBehaviour:
     _volume: 0.5
     _pitch: 1
   - _name: Wind2
-    _audioClip: {fileID: 8300000, guid: b2b36c863dfeee042a8f17e199142b06, type: 3}
+    _audioClip: {fileID: 8300000, guid: 36f8f403951eafe4eb86f4ca04eb1b8f, type: 3}
     _loop: 0
-    _volume: 0.5
-    _pitch: 1
+    _volume: 0.188
+    _pitch: 3
