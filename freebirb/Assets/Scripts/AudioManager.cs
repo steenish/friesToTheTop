@@ -79,4 +79,10 @@ public class AudioManager : MonoBehaviour {
         Sound sound = Array.Find(sounds, e => e.name == name);
         sound.source.volume = volume;
     }
+
+    public void ChangePitch(string name, float pitch) {
+        pitch = Mathf.Clamp(pitch, 0.0f, 1.0f);
+        Sound sound = Array.Find(sounds, e => e.name == name);
+        sound.source.pitch = pitch;
+    }
 }
