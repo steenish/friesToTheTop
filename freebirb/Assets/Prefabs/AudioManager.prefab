@@ -43,4 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c01279470bf78d45b2b50664472027f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - _name: Wind1
+    _audioClip: {fileID: 8300000, guid: 918c5d0a28b9e95498597547987e55ee, type: 3}
+    _loop: 1
+    _volume: 1
+    _pitch: 1
