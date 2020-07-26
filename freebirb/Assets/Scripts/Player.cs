@@ -135,6 +135,15 @@ public class Player : MonoBehaviour {
 
     private IEnumerator GameOverSequence(float delay) {
         paused = true;
+
+        // Update scores.
+        PlayerPrefs.SetInt("latestScore", currentScore);
+        if ((PlayerPrefs.HasKey("highscore") && currentScore > PlayerPrefs.GetInt("highscore")) ||
+            !PlayerPrefs.HasKey("highscore")) {
+            PlayerPrefs.SetInt("highscore", currentScore);
+        }
+
+        // Wait then load game over scene.
         yield return new WaitForSecondsRealtime(delay);
         SceneManager.LoadScene("GameOverScene");
     }
