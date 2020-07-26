@@ -106,6 +106,27 @@ public class Player : MonoBehaviour {
             Quaternion rotation = rb.rotation;
             Vector3 eulerRotation = rotation.eulerAngles;
             eulerRotation.y += torqueMultiplier * movementInput.x;
+            if (movementInput.x < 0) {
+                if (eulerRotation.z > 330f) {
+                    eulerRotation.z = 1f;
+                }
+                eulerRotation.z = Mathf.Lerp(eulerRotation.z, 30f, 0.1f);
+            } else {
+                if (eulerRotation.z < 30f) {
+                    eulerRotation.z = 359f;
+                }
+                eulerRotation.z = Mathf.Lerp(eulerRotation.z, 330f, 0.1f);
+            }
+            rotation.eulerAngles = eulerRotation;
+            rb.rotation = rotation;
+        } else {
+            Quaternion rotation = rb.rotation;
+            Vector3 eulerRotation = rotation.eulerAngles;
+            if (eulerRotation.z > 30f) {
+                eulerRotation.z = Mathf.Lerp(eulerRotation.z, 360f, 0.2f);
+            } else {
+                eulerRotation.z = Mathf.Lerp(eulerRotation.z, 0f, 0.2f);
+            }
             rotation.eulerAngles = eulerRotation;
             rb.rotation = rotation;
         }
