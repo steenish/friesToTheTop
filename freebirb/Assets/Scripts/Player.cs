@@ -56,6 +56,10 @@ public class Player : MonoBehaviour {
             highscoreText.text = !PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
         }
 
+        if (flapsText != null) {
+            flapsText.text = "Flaps: " + flaps.ToString();
+        }
+
         AudioManager.instance.Play("Wind1");
     }
 
