@@ -3771,7 +3771,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 389}
-  m_SizeDelta: {x: 1123.7, y: 268.6}
+  m_SizeDelta: {x: 1650.39, y: 268.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1320458383
 MonoBehaviour:
@@ -3805,7 +3805,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Freebirb
+  m_Text: Fries to the top!
 --- !u!222 &1320458384
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6493,7 +6493,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f4b330c1ff509140bc22e462e14f986, type: 2}
+  - {fileID: 2100000, guid: 3a2371dfcc9399049b297c0d42437f64, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
