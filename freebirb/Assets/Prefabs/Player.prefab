@@ -199,6 +199,7 @@ MonoBehaviour:
   animator: {fileID: 1613141760037736357}
   flapsText: {fileID: 0}
   currentScoreText: {fileID: 0}
+  highscoreText: {fileID: 0}
   gameOverDelay: 2
 --- !u!1 &2116511142687137243
 GameObject:
