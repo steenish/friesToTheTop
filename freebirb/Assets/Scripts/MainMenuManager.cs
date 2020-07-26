@@ -15,11 +15,11 @@ public class MainMenuManager : MonoBehaviour {
         highscoreText.text = !PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
     }
 
-    void Update() {
-        
-    }
-
     public void StartGame() {
         SceneManager.LoadScene("MainGameScene");
+    }
+
+    public void QuitGame() {
+        Application.Quit();
     }
 }
