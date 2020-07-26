@@ -76,6 +76,10 @@ public class Player : MonoBehaviour {
             }
             Debug.Log("New score: " + currentScore.ToString());
         }
+
+        // Update wind sound to correspond to speed
+        AudioManager.instance.ChangePitch("Wind1", Mathf.Clamp((speed / maxSpeed) * 3f, 1f, 3f));
+        AudioManager.instance.ChangeVolume("Wind1", Mathf.Clamp((speed / maxSpeed), 0.2f, 1f));
     }
 
     void FixedUpdate() {
