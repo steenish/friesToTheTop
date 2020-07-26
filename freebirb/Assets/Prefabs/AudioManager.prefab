@@ -59,3 +59,8 @@ MonoBehaviour:
     _loop: 0
     _volume: 0.188
     _pitch: 3
+  - _name: Flap
+    _audioClip: {fileID: 8300000, guid: c0cb577b0d9a4d14fb9f5b2749a8e0e9, type: 3}
+    _loop: 0
+    _volume: 0.7
+    _pitch: 1

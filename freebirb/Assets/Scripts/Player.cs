@@ -118,6 +118,7 @@ public class Player : MonoBehaviour {
         if (flapping) {
             if (flaps > 0) {
                 animator.SetTrigger("FlyFlap");
+                AudioManager.instance.Play("Flap");
                 rb.AddForce(Vector3.up * flapForceMultiplier);
                 rb.AddForce(transform.forward * flapForceMultiplier / 4);
                 flaps--;
