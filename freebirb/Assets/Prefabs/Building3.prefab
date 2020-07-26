@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7944186197662183281}
   m_Layer: 0
   m_Name: Building3
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 30, z: 10}
-  m_Center: {x: 0, y: 15, z: 0}
+  m_Size: {x: 10, y: 90, z: 10}
+  m_Center: {x: 0, y: 45, z: 0}
 --- !u!1 &3855306120598044567
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: 8501555537883433600}
   - component: {fileID: 4799944265610134051}
   - component: {fileID: 8373018610443713564}
-  - component: {fileID: 4727830218849480194}
   m_Layer: 0
   m_Name: Building2 (1)
   m_TagString: Untagged
@@ -177,19 +176,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4727830218849480194
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3855306120598044567}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 30, z: 10}
-  m_Center: {x: 0, y: 15, z: 0}
 --- !u!1 &6981641674603402213
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +187,6 @@ GameObject:
   - component: {fileID: 2367403590007195768}
   - component: {fileID: 6408879046097902281}
   - component: {fileID: 1304911061501816129}
-  - component: {fileID: 263526413689529102}
   m_Layer: 0
   m_Name: Building2
   m_TagString: Untagged
@@ -271,16 +256,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &263526413689529102
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6981641674603402213}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 30, z: 10}
-  m_Center: {x: 0, y: 15, z: 0}

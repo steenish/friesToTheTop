@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+#pragma warning disable
     [SerializeField]
     private float flyForceMultiplier;
     [SerializeField]
@@ -23,7 +25,11 @@ public class Player : MonoBehaviour {
     private Text flapsText;
     [SerializeField]
     private Text currentScoreText;
+    [SerializeField]
+    private float gameOverDelay;
+#pragma warning restore
 
+    private bool paused = false;
     private Rigidbody rb;
     private Vector2 movementInput;
     private float speed;
@@ -32,16 +38,18 @@ public class Player : MonoBehaviour {
     private int flaps = 1;
     private int currentScore;
 
-    // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody>();
         speed = 25f;
         currentScore = (int) transform.position.y;
-        currentScoreText.text = "Current score: " + currentScore.ToString();
+        if (currentScoreText != null) {
+            currentScoreText.text = "Current score: " + currentScore.ToString();
+        }
     }
 
-    // Update is called once per frame
     void Update() {
+        if (paused) return;
+
         // Get movement inputs
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
@@ -53,7 +61,9 @@ public class Player : MonoBehaviour {
         // Update highscore
         if (transform.position.y > currentScore) {
             currentScore = (int) transform.position.y;
-            currentScoreText.text = "Current score: " + currentScore.ToString();
+            if (currentScoreText != null) {
+                currentScoreText.text = "Current score: " + currentScore.ToString();
+            }
             Debug.Log("New score: " + currentScore.ToString());
         }
     }
@@ -104,6 +114,14 @@ public class Player : MonoBehaviour {
             flaps = maxFlaps;
             flapsText.text = "Flaps: " + flaps.ToString();
             Destroy(other.gameObject);
+        } else if (other.CompareTag("Fog")) {
+            StartCoroutine(GameOverSequence(0.0f));
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("Building")) {
+            StartCoroutine(GameOverSequence(gameOverDelay));
         }
     }
 
@@ -111,5 +129,11 @@ public class Player : MonoBehaviour {
         if (other.tag == "Wind") {
             rb.AddForce(Vector3.up * windForceMultiplier);
         }
+    }
+
+    private IEnumerator GameOverSequence(float delay) {
+        paused = true;
+        yield return new WaitForSecondsRealtime(delay);
+        SceneManager.LoadScene("GameOverScene");
     }
 }
