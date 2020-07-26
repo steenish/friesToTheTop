@@ -1277,7 +1277,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 737fb03de2d4f9148958844d9bc7c2b0, type: 3}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1290,12 +1290,13 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Instructions: You are a seagull, wanting to climb the heavens above the
     city. However, you have really bad cardio and can only flap your wings a limited
-    number of times before you need to eat french fries. You can also catch a ride
-    on the upwinds around the city.
+    number of times before you need to eat french fries to restore your energy. You
+    can also catch a ride on the upwinds around the city.
 
 
-    Steer your flying using WASD and flap your
-    wings using SPACE.'
+    Steer your flying
+    using WASD or arrow keys and flap your wings using SPACE. Try to get as high
+    as possible!'
 --- !u!222 &508221554
 CanvasRenderer:
   m_ObjectHideFlags: 0
