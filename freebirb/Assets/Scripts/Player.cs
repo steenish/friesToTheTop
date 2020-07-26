@@ -49,6 +49,10 @@ public class Player : MonoBehaviour {
         if (currentScoreText != null) {
             currentScoreText.text = "Current score: " + currentScore.ToString();
         }
+
+        if (highscoreText != null) {
+            highscoreText.text = !PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
+        }
     }
 
     void Update() {
@@ -149,7 +153,6 @@ public class Player : MonoBehaviour {
         if ((PlayerPrefs.HasKey("highscore") && currentScore > PlayerPrefs.GetInt("highscore")) ||
             !PlayerPrefs.HasKey("highscore")) {
             PlayerPrefs.SetInt("highscore", currentScore);
-            highscoreText.text = "Highscore: " + currentScore;
         }
 
         // Wait then load game over scene.
