@@ -49,8 +49,8 @@ MonoBehaviour:
   - {fileID: 2246253158867215324, guid: 8397d5f6bed382b408d4127b740165f5, type: 3}
   playerTransform: {fileID: 0}
   fogController: {fileID: 0}
-  initialNumBuildings: 10
-  maxNumBuildings: 30
+  initialNumBuildings: 30
+  maxNumBuildings: 60
   initialMaxSpawnDistance: 100
   spawnRadiusOffset: 120
   despawnAltitudeOffset: 50
