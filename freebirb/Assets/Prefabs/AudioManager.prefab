@@ -64,3 +64,8 @@ MonoBehaviour:
     _loop: 0
     _volume: 0.7
     _pitch: 1
+  - _name: Theme
+    _audioClip: {fileID: 8300000, guid: bbb396d3ba8f00547938c720ef396661, type: 3}
+    _loop: 1
+    _volume: 0.05
+    _pitch: 1

@@ -13,6 +13,7 @@ public class MainMenuManager : MonoBehaviour {
 
     void Start() {
         highscoreText.text = !PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
+        AudioManager.instance.Play("Theme");
     }
 
     public void StartGame() {
