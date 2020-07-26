@@ -21,9 +21,11 @@ public class FriesSpawner : MonoBehaviour {
 
     private int currentNumFries { get => fries.Count; }
     private List<GameObject> fries;
+    private float height;
 
     void Start() {
         fries = new List<GameObject>();
+        height = playerTransform.position.y;
     }
 
     void Update() {
@@ -34,6 +36,12 @@ public class FriesSpawner : MonoBehaviour {
 
         // Despawn old fries.
         DespawnFries();
+
+        // Lower max number of fries as the player gets higher
+        if (playerTransform.position.y > height + 100f) {
+            maxNumFries = Mathf.Clamp(maxNumFries - 1, 5, 50);
+            height = playerTransform.position.y;
+        }
     }
 
     private void SpawnFries(int num) {

@@ -21,9 +21,11 @@ public class WindSpawner : MonoBehaviour {
 
     private int currentNumWinds { get => winds.Count; }
     private List<GameObject> winds;
+    private float height;
 
     void Start() {
         winds = new List<GameObject>();
+        height = playerTransform.position.y;
     }
 
     void Update() {
@@ -34,6 +36,12 @@ public class WindSpawner : MonoBehaviour {
 
         // Despawn old winds.
         DespawnWinds();
+
+        // Lower max number of winds as the player gets higher
+        if (playerTransform.position.y > height + 100f) {
+            maxNumWinds = Mathf.Clamp(maxNumWinds - 1, 0, 50);
+            height = playerTransform.position.y;
+        }
     }
 
     private void SpawnWinds(int num) {

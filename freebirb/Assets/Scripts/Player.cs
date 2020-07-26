@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
     private Text highscoreText;
     [SerializeField]
     private float gameOverDelay;
+    [SerializeField]
+    private int maxFlaps;
 #pragma warning restore
 
     private bool paused = false;
@@ -38,13 +40,13 @@ public class Player : MonoBehaviour {
     private Vector2 movementInput;
     private float speed;
     private bool flapping = false;
-    private int maxFlaps = 1;
-    private int flaps = 1;
+    private int flaps;
     private int currentScore;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
         speed = 25f;
+        flaps = maxFlaps;
         currentScore = (int) transform.position.y;
         if (currentScoreText != null) {
             currentScoreText.text = "Current score: " + currentScore.ToString();

@@ -203,6 +203,7 @@ MonoBehaviour:
   currentScoreText: {fileID: 0}
   highscoreText: {fileID: 0}
   gameOverDelay: 1
+  maxFlaps: 3
 --- !u!1 &2116511142687137243
 GameObject:
   m_ObjectHideFlags: 0
