@@ -144,7 +144,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -188,8 +188,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6c1ce8e17351b140ad2afe651762c91, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friesSpawner: {fileID: 0}
   flyForceMultiplier: 10
   flapForceMultiplier: 1500
   windForceMultiplier: 200
@@ -200,7 +201,7 @@ MonoBehaviour:
   flapsText: {fileID: 0}
   currentScoreText: {fileID: 0}
   highscoreText: {fileID: 0}
-  gameOverDelay: 2
+  gameOverDelay: 1
 --- !u!1 &2116511142687137243
 GameObject:
   m_ObjectHideFlags: 0
