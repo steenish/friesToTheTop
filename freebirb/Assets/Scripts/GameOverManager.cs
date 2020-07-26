@@ -14,8 +14,8 @@ public class GameOverManager : MonoBehaviour {
 #pragma warning restore
 
     private void Start() {
-        scoreText.text = PlayerPrefs.HasKey("latestScore") ? "Score: 0" : "Score: " + PlayerPrefs.GetInt("latestScore");
-        highscoreText.text = PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
+        scoreText.text = !PlayerPrefs.HasKey("latestScore") ? "Score: 0" : "Score: " + PlayerPrefs.GetInt("latestScore");
+        highscoreText.text = !PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
     }
 
     public void RestartGame() {

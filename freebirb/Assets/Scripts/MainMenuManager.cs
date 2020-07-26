@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour {
 #pragma warning restore
 
     void Start() {
-        highscoreText.text = PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
+        highscoreText.text = !PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
     }
 
     void Update() {
