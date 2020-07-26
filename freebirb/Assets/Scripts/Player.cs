@@ -103,7 +103,9 @@ public class Player : MonoBehaviour {
                 rb.AddForce(Vector3.up * flapForceMultiplier);
                 rb.AddForce(transform.forward * flapForceMultiplier / 4);
                 flaps--;
-                flapsText.text = "Flaps: " + flaps.ToString();
+                if (flapsText != null) {
+                    flapsText.text = "Flaps: " + flaps.ToString();
+                }
             }
             flapping = false;
         }
