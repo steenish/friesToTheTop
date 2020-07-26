@@ -135,6 +135,7 @@ public class Player : MonoBehaviour {
 
     private IEnumerator GameOverSequence(float delay) {
         paused = true;
+        transform.GetChild(1).GetComponent<Renderer>().enabled = false;
 
         // Update scores.
         PlayerPrefs.SetInt("latestScore", currentScore);
