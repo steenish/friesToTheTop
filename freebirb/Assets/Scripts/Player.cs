@@ -139,6 +139,8 @@ public class Player : MonoBehaviour {
             friesSpawner.RemoveFry(other.gameObject);
         } else if (other.CompareTag("Fog")) {
             StartCoroutine(GameOverSequence(0.0f));
+        } else if (other.CompareTag("Wind")) {
+            AudioManager.instance.Play("Wind2");
         }
     }
 
