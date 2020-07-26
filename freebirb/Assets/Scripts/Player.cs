@@ -38,8 +38,8 @@ public class Player : MonoBehaviour {
     private Vector2 movementInput;
     private float speed;
     private bool flapping = false;
-    private int maxFlaps = 1;
-    private int flaps = 1;
+    private int maxFlaps = 3;
+    private int flaps = 3;
     private int currentScore;
 
     void Start() {
@@ -52,6 +52,10 @@ public class Player : MonoBehaviour {
 
         if (highscoreText != null) {
             highscoreText.text = !PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
+        }
+
+        if (flapsText != null) {
+            flapsText.text = "Flaps: " + flaps.ToString();
         }
 
         AudioManager.instance.Play("Wind1");
