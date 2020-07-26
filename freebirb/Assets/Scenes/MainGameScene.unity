@@ -673,6 +673,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384199376154105606, guid: 7c919664a759a6549b75415962a5a1da,
         type: 3}
+      propertyPath: friesSpawner
+      value: 
+      objectReference: {fileID: 347091740}
+    - target: {fileID: 8384199376154105606, guid: 7c919664a759a6549b75415962a5a1da,
+        type: 3}
       propertyPath: flapsText
       value: 
       objectReference: {fileID: 557874170}
@@ -686,11 +691,6 @@ PrefabInstance:
       propertyPath: highscoreText
       value: 
       objectReference: {fileID: 1103313529}
-    - target: {fileID: 8384199376154105606, guid: 7c919664a759a6549b75415962a5a1da,
-        type: 3}
-      propertyPath: friesSpawner
-      value: 
-      objectReference: {fileID: 347091740}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c919664a759a6549b75415962a5a1da, type: 3}
 --- !u!4 &1255404198 stripped
