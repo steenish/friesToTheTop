@@ -21,6 +21,7 @@ public class GameOverManager : MonoBehaviour {
 
     public void RestartGame() {
         SceneManager.LoadScene("MainGameScene");
+        AudioManager.instance.Stop("Theme");
     }
 
     public void ReturnToMainMenu() {

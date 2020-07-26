@@ -63,7 +63,6 @@ public class Player : MonoBehaviour {
         }
 
         AudioManager.instance.Play("Wind1");
-        AudioManager.instance.Play("Theme");
     }
 
     void Update() {

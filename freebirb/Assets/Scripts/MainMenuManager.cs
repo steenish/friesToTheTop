@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour {
 
     public void StartGame() {
         SceneManager.LoadScene("MainGameScene");
+        AudioManager.instance.Stop("Theme");
     }
 
     public void QuitGame() {
