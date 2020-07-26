@@ -602,7 +602,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 4000
+    maxNumParticles: 3000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -669,7 +669,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 200, y: 20, z: 200}
+    m_Scale: {x: 80, y: 20, z: 80}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4768,7 +4768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ca3a88488b5c043ba77f5f3ac17422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fogPlayerOffset: 100
+  _fogPlayerOffset: 50
   playerTransform: {fileID: 0}
 --- !u!1 &1205597432084423432
 GameObject:
@@ -4797,8 +4797,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205597432084423432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 12.52, z: 0}
-  m_LocalScale: {x: 200, y: 1, z: 200}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 150, y: 1, z: 150}
   m_Children: []
   m_Father: {fileID: 1205597431698576387}
   m_RootOrder: 0

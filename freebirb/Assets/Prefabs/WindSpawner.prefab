@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3673553355548201909
+--- !u!1 &306133603183500110
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3673553355548201911}
-  - component: {fileID: 3673553355548201908}
+  - component: {fileID: 9116020600328928592}
+  - component: {fileID: 1706805736769251606}
   m_Layer: 0
-  m_Name: BuildingSpawner
+  m_Name: WindSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3673553355548201911
+--- !u!4 &9116020600328928592
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3673553355548201909}
+  m_GameObject: {fileID: 306133603183500110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,29 +31,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3673553355548201908
+--- !u!114 &1706805736769251606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3673553355548201909}
+  m_GameObject: {fileID: 306133603183500110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a62c97838b90b2e47befcb07c24bf059, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d0784b0d52f5e048b304a9e3da90f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefabs:
-  - {fileID: 2246253158867215324, guid: d7c1f2a594ca2684589df0bec7bacf9c, type: 3}
-  - {fileID: 2246253158867215324, guid: b609376f845787b4da0a366ab5e4a4e9, type: 3}
-  - {fileID: 2246253158867215324, guid: 8397d5f6bed382b408d4127b740165f5, type: 3}
+  windPrefab: {fileID: 1782525708766826739, guid: 3195f82617e917e4ebfea474a3e775b3,
+    type: 3}
   playerTransform: {fileID: 0}
-  fogController: {fileID: 0}
-  initialNumBuildings: 30
-  maxNumBuildings: 60
-  initialMinSpawnDistance: 30
-  initialMaxSpawnDistance: 100
-  spawnMaxPerturbance: 30
-  spawnRadiusOffset: 30
-  despawnAltitudeOffset: 150
-  despawnThresholdTotalOffset: 100
+  maxNumWinds: 20
+  minSpawnDistance: 20
+  maxSpawnDistance: 100
+  despawnThresholdDistance: 100

@@ -32,7 +32,7 @@ public class FriesSpawner : MonoBehaviour {
             SpawnFries(maxNumFries - currentNumFries);
         }
 
-        // Despawn old buildings.
+        // Despawn old fries.
         DespawnFries();
     }
 
