@@ -53,11 +53,7 @@ public class BuildingSpawner : MonoBehaviour {
         float spawnAltitude = fogController.playerMaxAltitude - fogController.fogPlayerOffset;
 
         for (int i = 0; i < initialNumBuildings; ++i) {
-            float distance = Random.Range(20.0f, initialMaxSpawnDistance);
-            float angle = Random.Range(0.0f, 2.0f * Mathf.PI);
-            Vector3 spawnPos = new Vector3(playerTransform.position.x + Mathf.Cos(angle) * distance,
-                                           spawnAltitude,
-                                           playerTransform.position.z + Mathf.Sin(angle) * distance);
+            Vector3 spawnPos = HelperFunctions.RandomPointInCircle(new Vector3(playerTransform.position.x, spawnAltitude, playerTransform.position.z), initialMaxSpawnDistance);
             GameObject newBuilding = Instantiate(buildingPrefabs[Random.Range(0, buildingPrefabs.Length)], spawnPos, Quaternion.identity, transform);
             buildings.Add(newBuilding);
         }

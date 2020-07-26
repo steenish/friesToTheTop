@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c1ce8e17351b140ad2afe651762c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friesSpawner: {fileID: 0}
   flyForceMultiplier: 10
   flapForceMultiplier: 1500
   windForceMultiplier: 200

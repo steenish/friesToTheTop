@@ -8,6 +8,8 @@ public class Player : MonoBehaviour {
 
 #pragma warning disable
     [SerializeField]
+    private FriesSpawner friesSpawner;
+    [SerializeField]
     private float flyForceMultiplier;
     [SerializeField]
     private float flapForceMultiplier;
@@ -114,8 +116,11 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Fries") {
             flaps = maxFlaps;
-            flapsText.text = "Flaps: " + flaps.ToString();
-            Destroy(other.gameObject);
+            if (flapsText != null) {
+                flapsText.text = "Flaps: " + flaps.ToString();
+            }
+
+            friesSpawner.RemoveFry(other.gameObject);
         } else if (other.CompareTag("Fog")) {
             StartCoroutine(GameOverSequence(0.0f));
         }
