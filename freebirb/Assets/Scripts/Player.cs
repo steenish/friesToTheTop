@@ -42,6 +42,8 @@ public class Player : MonoBehaviour {
     private bool flapping = false;
     private int flaps;
     private int currentScore;
+    private float currentXTorque;
+    private float currentYTorque;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -92,7 +94,8 @@ public class Player : MonoBehaviour {
         if (movementInput.y != 0f) {
             Quaternion rotation = rb.rotation;
             Vector3 eulerRotation = rotation.eulerAngles;
-            eulerRotation.x += torqueMultiplier * movementInput.y;
+            currentYTorque = Mathf.Lerp(currentYTorque, torqueMultiplier, 0.1f);
+            eulerRotation.x += currentYTorque * movementInput.y;
 
             // Clamp the angles appropriately.
             if (90.0f < eulerRotation.x && eulerRotation.x < 180.0f) eulerRotation.x = 90.0f;
@@ -100,12 +103,15 @@ public class Player : MonoBehaviour {
 
             rotation.eulerAngles = eulerRotation;
             rb.rotation = rotation;
+        } else {
+            currentYTorque = 0f;
         }
 
         if (movementInput.x != 0f) {
             Quaternion rotation = rb.rotation;
             Vector3 eulerRotation = rotation.eulerAngles;
-            eulerRotation.y += torqueMultiplier * movementInput.x;
+            currentXTorque = Mathf.Lerp(currentXTorque, torqueMultiplier, 0.1f);
+            eulerRotation.y += currentXTorque * movementInput.x;
             if (movementInput.x < 0) {
                 if (eulerRotation.z > 330f) {
                     eulerRotation.z = 1f;
@@ -120,6 +126,7 @@ public class Player : MonoBehaviour {
             rotation.eulerAngles = eulerRotation;
             rb.rotation = rotation;
         } else {
+            currentXTorque = 0f;
             Quaternion rotation = rb.rotation;
             Vector3 eulerRotation = rotation.eulerAngles;
             if (eulerRotation.z > 30f) {
