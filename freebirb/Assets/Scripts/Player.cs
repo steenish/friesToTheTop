@@ -88,6 +88,11 @@ public class Player : MonoBehaviour {
             Quaternion rotation = rb.rotation;
             Vector3 eulerRotation = rotation.eulerAngles;
             eulerRotation.x += torqueMultiplier * movementInput.y;
+
+            // Clamp the angles appropriately.
+            if (90.0f < eulerRotation.x && eulerRotation.x < 180.0f) eulerRotation.x = 90.0f;
+            if (180.0f <= eulerRotation.x && eulerRotation.x < 270.0f) eulerRotation.x = 270.0f;
+
             rotation.eulerAngles = eulerRotation;
             rb.rotation = rotation;
         }
@@ -102,7 +107,7 @@ public class Player : MonoBehaviour {
 
         // Gliding physics
         //Debug.Log(speed);
-        speed += Mathf.Clamp(((transform.rotation.eulerAngles.x > 90f ? 0f : transform.rotation.eulerAngles.x + 1f) / 90f), 0f, 1f) * flyForceMultiplier;
+        speed += Mathf.Clamp((transform.rotation.eulerAngles.x > 90f ? 0f : transform.rotation.eulerAngles.x + 1f) / 90f, 0f, 1f) * flyForceMultiplier;
         rb.AddForce(transform.forward * speed);
         speed -= speedDecay * (transform.rotation.eulerAngles.x > 90f ? Mathf.Clamp(360f - transform.rotation.eulerAngles.x, 1f, 90f) : 0f);
         speed = Mathf.Clamp(speed, 0f, maxSpeed);
