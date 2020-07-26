@@ -74,7 +74,6 @@ public class Player : MonoBehaviour {
             if (currentScoreText != null) {
                 currentScoreText.text = "Current score: " + currentScore.ToString();
             }
-            Debug.Log("New score: " + currentScore.ToString());
         }
 
         // Update wind sound to correspond to speed
