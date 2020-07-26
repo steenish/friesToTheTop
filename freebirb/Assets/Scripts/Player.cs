@@ -28,6 +28,8 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private Text currentScoreText;
     [SerializeField]
+    private Text highscoreText;
+    [SerializeField]
     private float gameOverDelay;
 #pragma warning restore
 
@@ -114,7 +116,7 @@ public class Player : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.tag == "Fries") {
+        if (other.CompareTag("Fries")) {
             flaps = maxFlaps;
             if (flapsText != null) {
                 flapsText.text = "Flaps: " + flaps.ToString();
@@ -133,7 +135,7 @@ public class Player : MonoBehaviour {
     }
 
     void OnTriggerStay(Collider other) {
-        if (other.tag == "Wind") {
+        if (other.CompareTag("Wind")) {
             rb.AddForce(Vector3.up * windForceMultiplier);
         }
     }
@@ -147,6 +149,7 @@ public class Player : MonoBehaviour {
         if ((PlayerPrefs.HasKey("highscore") && currentScore > PlayerPrefs.GetInt("highscore")) ||
             !PlayerPrefs.HasKey("highscore")) {
             PlayerPrefs.SetInt("highscore", currentScore);
+            highscoreText.text = "Highscore: " + currentScore;
         }
 
         // Wait then load game over scene.
