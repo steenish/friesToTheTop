@@ -53,6 +53,8 @@ public class Player : MonoBehaviour {
         if (highscoreText != null) {
             highscoreText.text = !PlayerPrefs.HasKey("highscore") ? "Highscore: 0" : "Highscore: " + PlayerPrefs.GetInt("highscore");
         }
+
+        AudioManager.instance.Play("Wind1");
     }
 
     void Update() {
