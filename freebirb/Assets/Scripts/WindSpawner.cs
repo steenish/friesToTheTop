@@ -39,7 +39,7 @@ public class WindSpawner : MonoBehaviour {
 
         // Lower max number of winds as the player gets higher
         if (playerTransform.position.y > height + 100f) {
-            maxNumWinds = Mathf.Clamp(maxNumWinds - 1, 0, 50);
+            maxNumWinds = Mathf.Clamp(maxNumWinds - 1, 1, 20);
             height = playerTransform.position.y;
         }
     }
