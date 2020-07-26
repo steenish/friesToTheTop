@@ -135,7 +135,7 @@ public class Player : MonoBehaviour {
             if (flapsText != null) {
                 flapsText.text = "Flaps: " + flaps.ToString();
             }
-
+            AudioManager.instance.Play("Cronch");
             friesSpawner.RemoveFry(other.gameObject);
         } else if (other.CompareTag("Fog")) {
             StartCoroutine(GameOverSequence(0.0f));
@@ -167,6 +167,7 @@ public class Player : MonoBehaviour {
 
         // Wait then load game over scene.
         yield return new WaitForSecondsRealtime(delay);
+        AudioManager.instance.Stop("Wind1");
         SceneManager.LoadScene("GameOverScene");
     }
 }

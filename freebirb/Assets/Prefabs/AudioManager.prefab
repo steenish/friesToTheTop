@@ -49,3 +49,8 @@ MonoBehaviour:
     _loop: 1
     _volume: 1
     _pitch: 1
+  - _name: Cronch
+    _audioClip: {fileID: 8300000, guid: bd949b94b34860b40b8d348f3487aacd, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1
