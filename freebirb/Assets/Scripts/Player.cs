@@ -188,6 +188,7 @@ public class Player : MonoBehaviour {
     void OnTriggerStay(Collider other) {
         if (other.CompareTag("Wind")) {
             rb.AddForce(Vector3.up * windForceMultiplier);
+            speed += 5;
         }
     }
 
