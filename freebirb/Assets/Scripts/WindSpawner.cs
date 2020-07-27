@@ -26,6 +26,8 @@ public class WindSpawner : MonoBehaviour {
     void Start() {
         winds = new List<GameObject>();
         height = playerTransform.position.y;
+
+        InvokeRepeating("DespawnWinds", 1.0f, 0.5f);
     }
 
     void Update() {
@@ -33,9 +35,6 @@ public class WindSpawner : MonoBehaviour {
         if (currentNumWinds < maxNumWinds) {
             SpawnWinds(maxNumWinds - currentNumWinds);
         }
-
-        // Despawn old winds.
-        DespawnWinds();
 
         // Lower max number of winds as the player gets higher
         if (playerTransform.position.y > height + 100f) {

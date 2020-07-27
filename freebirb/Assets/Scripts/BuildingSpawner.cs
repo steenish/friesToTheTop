@@ -41,6 +41,8 @@ public class BuildingSpawner : MonoBehaviour {
         buildings = new List<GameObject>();
 
         SpawnInitialBuildings();
+
+        InvokeRepeating("DespawnBuildings", 1.0f, 0.5f);
     }
 
     void Update() {
@@ -48,9 +50,6 @@ public class BuildingSpawner : MonoBehaviour {
         if (currentNumBuildings < maxNumBuildings) {
             SpawnBuildings(maxNumBuildings - currentNumBuildings);
         }
-
-        // Despawn old buildings.
-        DespawnBuildings();
     }
 
     private void SpawnInitialBuildings() {
@@ -64,13 +63,6 @@ public class BuildingSpawner : MonoBehaviour {
     }
 
     private void SpawnBuildings(int num) {
-        //float spawnAltitude = fogController.playerMaxAltitude - fogController.fogPlayerOffset + Random.Range(-spawnMaxPerturbance, spawnMaxPerturbance);
-
-        //for (int i = 0; i < num; ++i) {
-        //    Vector3 spawnPos = HelperFunctions.RandomPointInCircleExcludeInner(new Vector3(playerTransform.position.x, spawnAltitude, playerTransform.position.z), initialMaxSpawnDistance, initialMinSpawnDistance);
-        //    GameObject newBuilding = Instantiate(buildingPrefabs[Random.Range(0, buildingPrefabs.Length)], spawnPos, Quaternion.identity, transform);
-        //    buildings.Add(newBuilding);
-        //}
         float spawnAltitude = fogController.playerMaxAltitude - fogController.fogPlayerOffset;
 
         for (int i = 0; i < num; ++i) {

@@ -26,6 +26,9 @@ public class FriesSpawner : MonoBehaviour {
     void Start() {
         fries = new List<GameObject>();
         height = playerTransform.position.y;
+
+        // Start despawning fries after a delay, then do it repeatedly on a time interval.
+        InvokeRepeating("DespawnFries", 1.0f, 0.5f);
     }
 
     void Update() {
@@ -33,9 +36,6 @@ public class FriesSpawner : MonoBehaviour {
         if (currentNumFries < maxNumFries) {
             SpawnFries(maxNumFries - currentNumFries);
         }
-
-        // Despawn old fries.
-        DespawnFries();
 
         // Lower max number of fries as the player gets higher
         if (playerTransform.position.y > height + 100f) {
